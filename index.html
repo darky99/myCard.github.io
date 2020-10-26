@@ -1,0 +1,368 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>myCard</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+.productCardContent {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.productCardContent:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+    .socialButton > a{
+      color: #000;
+    }
+    .socialButton > a :hover{
+      color: #2a4185;
+    }
+    .my-cardContainer{
+      margin-top: 12vh;
+    }
+    .rightBorder{
+      border-right: 2px solid #2a4185;
+    }
+    .socialButton{
+      text-align: center;
+      padding: 5px 0;
+      font-size: 20px;
+      line-height: 1px;
+      color: #000;
+    }
+    ul {
+    line-height: 1.7;
+    font-size: 16px;
+    }
+      a:link{
+  text-decoration: none;
+}
+
+
+.productCardContainer{
+  padding: 5px;
+}
+.productCardContent{
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 3px solid #2a4185;
+  background: #0050a0;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+.productCardContent .productCardImage{
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.productCardContent .productCardImage img{
+  position: relative;
+  display: block;
+  min-height: 200px;
+  min-width: 100%;
+  max-width: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.productCardContent:hover .productCardImage img{
+  opacity: 0.8;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.productCardContent .productCardImage .imageCardEffect{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px 10px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-indent: 9999px;
+}
+.productCardContent .productCardImage .imageCardEffect::before,
+.productCardContent .productCardImage .imageCardEffect::after{
+    pointer-events: none;
+}
+.productCardContent .productCardImage .imageCardEffect::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    content: '';
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+
+    -webkit-transform: rotate(45deg) scale(2) translate(0px, -100%);
+    -moz-transform: rotate(45deg) scale(2) translate(0px, -100%);
+    -o-transform: rotate(45deg) scale(2) translate(0px, -100%);
+    -ms-transform: rotate(45deg) scale(2) translate(0px, -100%);
+    transform: rotate(45deg) scale(2.5) translate(0px, -100%);
+}
+.productCardContent:hover .productCardImage .imageCardEffect::before {
+    -webkit-transform: rotate(45deg) scale(2) translate(0px, 100%);
+    -moz-transform: rotate(45deg) scale(2) translate(0px, 100%);
+    -o-transform: rotate(45deg) scale(2) translate(0px, 100%);
+    -ms-transform: rotate(45deg) scale(2) translate(0px, 100%);
+    transform: rotate(45deg) scale(2.5) translate(0px, 100%);
+}
+
+/*======================== Card Details Style */
+.productCardDetails{
+    position: relative;
+    overflow: hidden;
+    background: #FFFFFF;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+.productCardDetails .productCardModel{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+}
+.productCardDetails .productCardModel a:link, .productCardDetails .productCardModel .accessoryDesc{
+    color: #2a4185;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    display: block;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+.productCardDetails .productCardModel a span, .productCardDetails .productCardModel .accessoryDesc span{
+    font-size: 18px;
+    display: block;
+}
+.productCardDetails .productCardModel a span b, .productCardDetails .productCardModel .accessoryDesc span b{
+    font-size: 12px;
+    font-weight: normal;
+}
+.productCardContent:hover .productCardDetails .productCardModel a, .productCardContent:hover .productCardDetails .productCardModel .accessoryDesc{
+    color: #fff;
+}
+.modelCardEffect{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.productCardContent .productCardDetails .modelCardEffect::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2a4185;
+    content: '';
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+
+    -webkit-transform: skew(40deg, 0deg) translate(-150%, 0px);
+    -moz-transform: skew(40deg, 0deg) translate(-150%, 0px);
+    -o-transform: skew(40deg, 0deg) translate(-150%, 0px);
+    -ms-transform: skew(40deg, 0deg) translate(-150%, 0px);
+    transform: skew(40deg, 0deg) translate(-150%, 0px);
+}
+.productCardContent:hover .productCardDetails .modelCardEffect::before {
+    -webkit-transform: skew(0deg, 0deg) translate(0%, 0px);
+    -moz-transform: skew(0deg, 0deg) translate(0%, 0px);
+    -o-transform: skew(0deg, 0deg) translate(0%, 0px);
+    -ms-transform: skew(0deg, 0deg) translate(0%, 0px);
+    transform: skew(0deg, 0deg) translate(0%, 0px);
+}
+.productCardContent .productCardDetails .productCardDetailsList {
+    position: relative;
+    height: 150px;
+    padding-top: 25px;
+}
+.productCardContent .productCardDetails .productCardDetailsList .list-group{
+    margin-bottom: 0!important;
+}
+.productCardContent .productCardDetails .productCardDetailsList .list-group .list-group-item{
+    color: #2a4185 !important;
+}
+.productCardContent .productCardDetails .productCardDetailsList .list-group .list-group-item .detailIcon{
+    position: relative;
+    width: 40px;
+    padding-left: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 25px;
+}
+.productCardContent .productCardDetails .productCardDetailsList .list-group .list-group-item .detailInfo{
+    display: table-cell;
+    vertical-align: middle;
+}
+.productCardContent .productCardDetails .accessoryCardDetailsList {
+    position: relative;
+    height: 50px;
+}
+.productCardContent .productCardDetails .accessoryCardDetailsList .list-group{
+    margin-bottom: 0!important;
+}
+.productCardContent .productCardDetails .accessoryCardDetailsList .list-group .list-group-item{
+    color: #2a4185 !important;
+}
+.productCardContent .productCardDetails .accessoryCardDetailsList .list-group .list-group-item .detailIcon{
+    position: relative;
+    width: 40px;
+    padding-left: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 25px;
+}
+.productCardContent .productCardDetails .accessoryCardDetailsList .list-group .list-group-item .detailInfo{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.productCardContent .productCardPrice{
+    position: relative;
+    text-align: center;
+}
+.productCardContent .productCardPrice a, .productCardContent .productCardPrice button{
+    border: none !important;
+    width: 40%;
+    margin: 4% !important;
+    padding: 0 !important;
+    text-align: center;
+    line-height: 35px;
+    background: transparent;
+    color: #2a4185;
+    -webkit-transition: all 100ms ease-out;
+    -moz-transition: all 100ms ease-out;
+    -o-transition: all 100ms ease-out;
+    transition: all 100ms ease-out;
+}
+.productCardContent:hover .productCardPrice a, .productCardContent:hover .productCardPrice button {
+    background: #2a4185;
+    color: #fff;
+}
+.productCardPrice a:hover, .productCardPrice a:focus, .productCardPrice a:hover, .productCardPrice button:focus{
+    background: #fff;
+    color: #2a4185;
+}
+.productCardContent .productCardPrice .inCart, .productCardPrice .inCart:focus{
+    color: #2a4185 !important;
+    background: #81c868 !important;
+}
+.accessoryAdminCard{
+    background: #FFFFFF;
+    padding: 10px;
+}
+  </style>
+
+</head>
+
+<body>
+  <div class="container my-cardContainer">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        &nbsp
+      </div>
+      
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div class="productCardContainer">
+          <div class="productCardContent">
+            <div class="productCardImage">
+              <img src="IMG_20190130_175817_629.jpg" alt="" />
+              <a href="" class="imageCardEffect">Product</a>
+            </div>
+            <div class="productCardDetails">
+              <div class="productCardModel">
+                <span class="modelCardEffect"></span>
+                <a href="">
+                  Shubham Bhagat
+                  <span>Ui Devloper</span>
+                </a>
+              </div>
+              <div class="productCardDetailsList">
+                <div class="row">
+                  <div class="col-sm-6 rightBorder">
+                    <ul>
+                      <li>
+                        HTML/Css
+                      </li>
+                      <li>
+                        JavaScript
+                      </li>
+                      <li>
+                        Jquery
+                      </li>
+                      <li>
+                        Angular
+                      </li>
+                    </ul>
+                
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="socialButton">
+                      <a href="https://www.facebook.com/shubbhagay/"><i href="#" class="fa fa-facebook"></i></a> 
+                    </div>
+                    <div class="socialButton">
+                     <a href="https://www.linkedin.com/in/shubham-bhagat-117165158/"> <i class="fa fa-linkedin"></i></a> 
+                    </div>
+                    <div class="socialButton">
+                      <a href="https://www.instagram.com/that_darksoul/?hl=en"><i href="#" class="fa fa-instagram" aria-hidden="true"></i></a> 
+                    </div>
+                    <div class="socialButton">
+                     <a href="https://github.com/darky99"> <i class="fa fa-github" aria-hidden="true"></i></a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="productCardPrice">
+                <a href="tel:8329214606" class="btn">
+                  <i class="fa fa-phone" aria-hidden="true"></i> Call
+                </a>
+                <button class="btn addToCart"> <a href="mailto:shubhumm99@gmail.com">
+                  <i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
